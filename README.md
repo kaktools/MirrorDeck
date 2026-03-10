@@ -21,7 +21,7 @@ Aktuelle Version: `1.3.1`
 
 Installer-Datei aus `dist/` verwenden:
 
-- `dist/MirrorDeck-Setup-1.3.0.exe`
+- `dist/MirrorDeck-Setup-1.3.1.exe`
 
 ### Portable Build
 
