@@ -1,6 +1,6 @@
 # MirrorDeck Release Notes
 
-## 1.3.0 - 2026-03-08
+## 1.3.0
 
 ### Neu
 
