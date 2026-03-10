@@ -25,7 +25,7 @@ internal static class ProcessWindowBrandingHelper
                 return false;
             }
 
-            if (FindMainWindow(process.Id) != IntPtr.Zero)
+            if (FindCandidateWindows(process.Id).Count > 0)
             {
                 return true;
             }
@@ -58,11 +58,15 @@ internal static class ProcessWindowBrandingHelper
                     return brandedAtLeastOnce;
                 }
 
-                var hwnd = FindMainWindow(process.Id);
-                if (hwnd != IntPtr.Zero)
+                var windows = FindCandidateWindows(process.Id);
+                if (windows.Count > 0)
                 {
-                    SetWindowText(hwnd, title);
-                    ApplyWindowIcon(hwnd, largeIcon, smallIcon);
+                    foreach (var hwnd in windows)
+                    {
+                        SetWindowText(hwnd, title);
+                        ApplyWindowIcon(hwnd, largeIcon, smallIcon);
+                    }
+
                     brandedAtLeastOnce = true;
                 }
 
@@ -85,10 +89,10 @@ internal static class ProcessWindowBrandingHelper
         return brandedAtLeastOnce;
     }
 
-    private static IntPtr FindMainWindow(int processId)
+    private static IReadOnlyList<IntPtr> FindCandidateWindows(int processId)
     {
-        IntPtr preferred = IntPtr.Zero;
-        IntPtr fallback = IntPtr.Zero;
+        var preferred = new List<IntPtr>();
+        var fallback = new List<IntPtr>();
 
         EnumWindows((hwnd, _) =>
         {
@@ -111,10 +115,7 @@ internal static class ProcessWindowBrandingHelper
             var titleLength = GetWindowTextLength(hwnd);
             if (titleLength <= 0)
             {
-                if (fallback == IntPtr.Zero)
-                {
-                    fallback = hwnd;
-                }
+                fallback.Add(hwnd);
 
                 return true;
             }
@@ -124,22 +125,25 @@ internal static class ProcessWindowBrandingHelper
             var title = buffer.ToString();
 
             if (title.Contains("Renderer", StringComparison.OrdinalIgnoreCase) ||
+                title.Contains("Direct3D", StringComparison.OrdinalIgnoreCase) ||
                 title.Contains("UxPlay", StringComparison.OrdinalIgnoreCase) ||
                 title.Contains("MirrorDeck", StringComparison.OrdinalIgnoreCase))
             {
-                preferred = hwnd;
-                return false;
+                preferred.Add(hwnd);
+                return true;
             }
 
-            if (fallback == IntPtr.Zero)
-            {
-                fallback = hwnd;
-            }
+            fallback.Add(hwnd);
 
             return true;
         }, IntPtr.Zero);
 
-        return preferred != IntPtr.Zero ? preferred : fallback;
+        if (preferred.Count > 0)
+        {
+            return preferred;
+        }
+
+        return fallback;
     }
 
     private static void ApplyWindowIcon(IntPtr hwnd, IntPtr largeIcon, IntPtr smallIcon)

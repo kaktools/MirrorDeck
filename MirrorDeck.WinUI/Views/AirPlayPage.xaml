@@ -61,6 +61,17 @@
                                 <ToggleSwitch Grid.Column="0" Width="52" MinWidth="0" Padding="0" Margin="0,0,-6,0" Header="" OnContent="" OffContent="" IsOn="{x:Bind ViewModel.AutoRestartOnFailure, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Left" />
                                 <TextBlock Grid.Column="1" Text="Auto-Restart" Foreground="{StaticResource MdTextStrongBrush}" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0" />
                             </Grid>
+
+                            <Grid ColumnSpacing="0" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <ToggleSwitch Grid.Column="0" Width="52" MinWidth="0" Padding="0" Margin="0,0,-6,0" Header="" OnContent="" OffContent="" IsOn="{x:Bind ViewModel.RequirePinOnFirstConnect, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Left" />
+                                <TextBlock Grid.Column="1" Text="PIN bei erster Verbindung" Foreground="{StaticResource MdTextStrongBrush}" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0" />
+                            </Grid>
+
+                            <TextBox Width="220" PlaceholderText="Zufällige PIN" MaxLength="4" Text="{x:Bind ViewModel.FixedPin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{x:Bind ViewModel.RequirePinOnFirstConnect, Mode=OneWay}" VerticalAlignment="Center" />
                         </StackPanel>
 
                         <ItemsControl>

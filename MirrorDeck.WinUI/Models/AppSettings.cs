@@ -13,6 +13,8 @@ public sealed class AppSettings
     public string AirPlayName { get; set; } = "MirrorDeck Receiver";
     public bool AutoStartUxPlay { get; set; }
     public bool AutoRestartUxPlay { get; set; }
+    public bool AirPlayRequirePinOnFirstConnect { get; set; }
+    public string AirPlayFixedPin { get; set; } = string.Empty;
     public bool AirPlayFullscreen { get; set; }
     public bool AirPlayAudioEnabled { get; set; } = true;
     public string UxPlayExtraArgs { get; set; } = string.Empty;

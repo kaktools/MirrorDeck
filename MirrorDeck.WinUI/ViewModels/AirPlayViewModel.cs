@@ -2,6 +2,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Dispatching;
 using MirrorDeck.WinUI.Services.Interfaces;
+using System.Text.RegularExpressions;
 using Windows.ApplicationModel.DataTransfer;
 
 namespace MirrorDeck.WinUI.ViewModels;
@@ -24,6 +25,8 @@ public class AirPlayViewModel : ObservableObject
     private string _airPlayName = string.Empty;
     private bool _autoStartOnAppStart;
     private bool _autoRestartOnFailure;
+    private bool _requirePinOnFirstConnect;
+    private string _fixedPin = string.Empty;
     private bool _manualStopRequested;
     private int _autoRestartAttempts;
     private bool _autoRestartLimitReachedLogged;
@@ -103,6 +106,38 @@ public class AirPlayViewModel : ObservableObject
         }
     }
 
+    public bool RequirePinOnFirstConnect
+    {
+        get => _requirePinOnFirstConnect;
+        set
+        {
+            if (SetProperty(ref _requirePinOnFirstConnect, value))
+            {
+                _settingsService.Current.AirPlayRequirePinOnFirstConnect = value;
+                SaveSettingsFireAndForget("AirPlay.RequirePinOnFirstConnect");
+            }
+        }
+    }
+
+    public string FixedPin
+    {
+        get => _fixedPin;
+        set
+        {
+            var normalized = NormalizePin(value);
+            if (SetProperty(ref _fixedPin, normalized))
+            {
+                _settingsService.Current.AirPlayFixedPin = normalized;
+                OnPropertyChanged(nameof(PinModeHintText));
+                SaveSettingsFireAndForget("AirPlay.FixedPin");
+            }
+        }
+    }
+
+    public string PinModeHintText => string.IsNullOrWhiteSpace(FixedPin)
+        ? "Leer lassen = zufaellige PIN bei erster Verbindung"
+        : "Gespeichert: feste 4-stellige PIN";
+
     public string BonjourInstalledText => BonjourInstalled ? "Installed" : "Missing";
     public string BonjourRunningText => BonjourRunning ? "Running" : "Stopped";
     public string OverallStatusText => BonjourRunning ? "RUNNING" : (BonjourInstalled ? "READY" : "SETUP NEEDED");
@@ -131,6 +166,8 @@ public class AirPlayViewModel : ObservableObject
         AirPlayName = _settingsService.Current.AirPlayName;
         AutoStartOnAppStart = _settingsService.Current.AutoStartUxPlay;
         AutoRestartOnFailure = _settingsService.Current.AutoRestartUxPlay;
+        RequirePinOnFirstConnect = _settingsService.Current.AirPlayRequirePinOnFirstConnect;
+        FixedPin = _settingsService.Current.AirPlayFixedPin;
 
         _uxPlayService.LogReceived += OnUxPlayLogReceived;
         _ = SafeExecuteAsync(RefreshBonjourStatusAsync, "AirPlay.InitialRefresh");
@@ -140,6 +177,12 @@ public class AirPlayViewModel : ObservableObject
     {
         _manualStopRequested = false;
         ResetAutoRestartState();
+
+        if (RequirePinOnFirstConnect && !string.IsNullOrWhiteSpace(FixedPin) && FixedPin.Length != 4)
+        {
+            AppendLog("ERR: PIN muss genau 4-stellig sein oder leer bleiben.");
+            return Task.CompletedTask;
+        }
 
         if (!_settingsService.Current.EnableAirPlayService)
         {
@@ -409,5 +452,21 @@ public class AirPlayViewModel : ObservableObject
                 _loggingService.LogError("Settings save failed", ex, source);
             }
         });
+    }
+
+    private static string NormalizePin(string? value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return string.Empty;
+        }
+
+        var digits = Regex.Replace(value, "[^0-9]", string.Empty);
+        if (digits.Length > 4)
+        {
+            digits = digits.Substring(0, 4);
+        }
+
+        return digits;
     }
 }

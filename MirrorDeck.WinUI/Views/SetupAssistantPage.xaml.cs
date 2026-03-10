@@ -24,6 +24,7 @@ public sealed partial class SetupAssistantPage : Page
     private ShortcutTarget _captureTarget;
     private LicenseWindow? _licenseWindow;
     private bool _isUpdateAvailable;
+    private bool _isCheckingForUpdate;
 
     public SetupAssistantPage()
     {
@@ -191,23 +192,47 @@ public sealed partial class SetupAssistantPage : Page
 
     private async void OnCheckUpdateClicked(object sender, RoutedEventArgs e)
     {
-        var update = await _updateService.CheckForUpdateAsync();
-        _isUpdateAvailable = update.IsUpdateAvailable;
-        UpdateInstallButton.IsEnabled = _isUpdateAvailable;
-
-        var message = update.IsUpdateAvailable
-            ? $"Neue Version verfugbar: {update.LatestVersion} (aktuell: {update.CurrentVersion})."
-            : $"Kein Update gefunden. Aktuelle Version: {update.CurrentVersion}.";
-
-        var dialog = new ContentDialog
+        if (_isCheckingForUpdate)
         {
-            XamlRoot = XamlRoot,
-            Title = "Update-Status",
-            Content = message,
-            CloseButtonText = "Schließen"
-        };
+            return;
+        }
 
-        await dialog.ShowAsync();
+        _isCheckingForUpdate = true;
+        var button = sender as Button;
+
+        if (button is not null)
+        {
+            button.IsEnabled = false;
+        }
+
+        try
+        {
+            var update = await _updateService.CheckForUpdateAsync();
+            _isUpdateAvailable = update.IsUpdateAvailable;
+            UpdateInstallButton.IsEnabled = _isUpdateAvailable;
+
+            var message = update.IsUpdateAvailable
+                ? $"Neue Version verfugbar: {update.LatestVersion} (aktuell: {update.CurrentVersion})."
+                : $"Kein Update gefunden. Aktuelle Version: {update.CurrentVersion}.";
+
+            var dialog = new ContentDialog
+            {
+                XamlRoot = XamlRoot,
+                Title = "Update-Status",
+                Content = message,
+                CloseButtonText = "Schließen"
+            };
+
+            await dialog.ShowAsync();
+        }
+        finally
+        {
+            _isCheckingForUpdate = false;
+            if (button is not null)
+            {
+                button.IsEnabled = true;
+            }
+        }
     }
 
     private async void OnInstallUpdateClicked(object sender, RoutedEventArgs e)

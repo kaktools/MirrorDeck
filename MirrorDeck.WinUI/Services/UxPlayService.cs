@@ -167,6 +167,18 @@ public sealed class UxPlayService : IUxPlayService
             arguments.Add("-a");
         }
 
+        if (settings.AirPlayRequirePinOnFirstConnect)
+        {
+            if (string.IsNullOrWhiteSpace(settings.AirPlayFixedPin))
+            {
+                arguments.Add("-pin");
+            }
+            else
+            {
+                arguments.Add($"-pin {settings.AirPlayFixedPin.Trim()}");
+            }
+        }
+
         if (!string.IsNullOrWhiteSpace(settings.UxPlayExtraArgs))
         {
             arguments.Add(settings.UxPlayExtraArgs.Trim());
