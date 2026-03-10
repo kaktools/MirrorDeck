@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page x:ConnectionId='1'
+    x:Class="MirrorDeck.WinUI.Views.AndroidPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:ConnectionId='2' x:Name="AndroidRoot" Background="{StaticResource MirrorDeckPageBackgroundBrush}">
+        <Image Style="{StaticResource PageWatermarkImageStyle}" />
+        <ScrollViewer>
+            <StackPanel Padding="14" Spacing="14">
+                <Border Style="{StaticResource PageHeaderCard}">
+                    <Grid RowSpacing="6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0" ColumnSpacing="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="Android" Style="{StaticResource PageTitleStyle}" VerticalAlignment="Center" />
+                            <ScrollViewer Grid.Column="1" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Border Style="{StaticResource StatusBadgeStyle}">
+                                        <StackPanel Orientation="Horizontal" Spacing="4"><TextBlock Text="Endpoint" Style="{StaticResource BodySubtleStyle}" /><TextBlock x:ConnectionId='21'                                                    Foreground="{StaticResource MdTextStrongBrush}" /></StackPanel>
+                                    </Border>
+                                    <Border Style="{StaticResource StatusBadgeStyle}">
+                                        <StackPanel Orientation="Horizontal" Spacing="4"><TextBlock Text="TCP" Style="{StaticResource BodySubtleStyle}" /><TextBlock x:ConnectionId='20'                                                      Foreground="{StaticResource MdTextStrongBrush}" /></StackPanel>
+                                    </Border>
+                                    <Border Style="{StaticResource StatusBadgeStyle}">
+                                        <StackPanel Orientation="Horizontal" Spacing="4"><TextBlock Text="Geräte" Style="{StaticResource BodySubtleStyle}" /><TextBlock x:ConnectionId='19'                                                        Foreground="{StaticResource MdTextStrongBrush}" /></StackPanel>
+                                    </Border>
+                                    <Border Style="{StaticResource StatusBadgeStyle}" Background="#1F2FBF78" BorderBrush="#4A2FBF78"><TextBlock x:ConnectionId='18'                                                          Foreground="{StaticResource MdTextStrongBrush}" /></Border>
+                                </StackPanel>
+                            </ScrollViewer>
+                        </Grid>
+
+                        <TextBlock Grid.Row="1" Text="scrcpy über TCP/IP oder USB starten" Style="{StaticResource BodySubtleStyle}" />
+                    </Grid>
+                </Border>
+
+                <Border Style="{StaticResource ActionCard}">
+                    <StackPanel Spacing="10">
+                        <Grid ColumnSpacing="10" VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="150" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="92" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="18" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <StackPanel Orientation="Horizontal" Spacing="0" VerticalAlignment="Center">
+                                    <ToggleSwitch x:ConnectionId='17' Width="52" MinWidth="0" Padding="0" Margin="0,0,-6,0" Header="" OnContent="" OffContent=""                                                            VerticalAlignment="Center" HorizontalAlignment="Left" />
+                                    <TextBlock Text="Auto-Start + TCP/IP" Foreground="{StaticResource MdTextStrongBrush}" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="0" VerticalAlignment="Center">
+                                    <ToggleSwitch x:ConnectionId='16' Width="52" MinWidth="0" Padding="0" Margin="0,0,-6,0" Header="" OnContent="" OffContent=""                                                             VerticalAlignment="Center" HorizontalAlignment="Left" />
+                                    <TextBlock Text="Auto-Restart" Foreground="{StaticResource MdTextStrongBrush}" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0" />
+                                </StackPanel>
+                            </StackPanel>
+                            <TextBlock Grid.Column="1" Text="Host" Style="{StaticResource BodySubtleStyle}" VerticalAlignment="Center" />
+                            <TextBox x:ConnectionId='13' Grid.Column="2"                                                PlaceholderText="IP oder Hostname" VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="3" Text="Port" Style="{StaticResource BodySubtleStyle}" VerticalAlignment="Center" />
+                            <NumberBox x:ConnectionId='14' Grid.Column="4"
+                                                                                      
+                                       Minimum="1"
+                                       Maximum="65535"
+                                       SmallChange="1"
+                                       LargeChange="10"
+                                       ValidationMode="InvalidInputOverwritten"
+                                                                           
+                                       MinWidth="96"
+                                       VerticalAlignment="Center" />
+                            <Button x:ConnectionId='15' Grid.Column="5" Content="Auto erkennen" Style="{StaticResource SecondaryButtonStyle}"                                                        VerticalAlignment="Center" />
+                        </Grid>
+
+                        <ItemsControl>
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapGrid Orientation="Horizontal" HorizontalAlignment="Left" />
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                                <Button x:ConnectionId='5' Margin="0,0,10,10" Style="{StaticResource ActionTileButtonStyle}" Background="{StaticResource MdStartCardBrush}" BorderBrush="#552FBF78"                                                       >
+                                    <StackPanel Spacing="8" HorizontalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <SymbolIcon Symbol="Play" Foreground="{StaticResource MdSuccessBrush}" />
+                                            <TextBlock Text="Verbinden + Starten" Style="{StaticResource SectionTitleStyle}" />
+                                        </StackPanel>
+                                        <TextBlock Text="TCP verbinden und Mirror starten" Style="{StaticResource BodySubtleStyle}" TextAlignment="Center" />
+                                    </StackPanel>
+                            </Button>
+
+                                <Button x:ConnectionId='6' Margin="0,0,10,10" Style="{StaticResource ActionTileButtonStyle}" Background="{StaticResource MdRestartCardBrush}" BorderBrush="#663CA8FF"                                               >
+                                    <StackPanel Spacing="8" HorizontalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <SymbolIcon Symbol="World" Foreground="{StaticResource MdInfoBrush}" />
+                                            <TextBlock Text="Nur verbinden" Style="{StaticResource SectionTitleStyle}" />
+                                        </StackPanel>
+                                        <TextBlock Text="ADB TCP-Verbindung herstellen" Style="{StaticResource BodySubtleStyle}" TextAlignment="Center" />
+                                    </StackPanel>
+                            </Button>
+
+                                <Button x:ConnectionId='7' Margin="0,0,10,10" Style="{StaticResource ActionTileButtonStyle}" Background="{StaticResource MdStopCardBrush}" BorderBrush="#66E45A6E"                                                  >
+                                    <StackPanel Spacing="8" HorizontalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <SymbolIcon Symbol="DisconnectDrive" Foreground="{StaticResource MdDangerBrush}" />
+                                            <TextBlock Text="Trennen" Style="{StaticResource SectionTitleStyle}" />
+                                        </StackPanel>
+                                        <TextBlock Text="TCP-Verbindung beenden" Style="{StaticResource BodySubtleStyle}" TextAlignment="Center" />
+                                    </StackPanel>
+                            </Button>
+
+                                <Button x:ConnectionId='8' Margin="0,0,10,10" Style="{StaticResource ActionTileButtonStyle}" Background="{StaticResource MdStartCardBrush}" BorderBrush="#552FBF78"                                             >
+                                    <StackPanel Spacing="8" HorizontalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <SymbolIcon Symbol="Phone" Foreground="{StaticResource MdSuccessBrush}" />
+                                            <TextBlock Text="USB starten" Style="{StaticResource SectionTitleStyle}" />
+                                        </StackPanel>
+                                        <TextBlock Text="Mirror über USB starten" Style="{StaticResource BodySubtleStyle}" TextAlignment="Center" />
+                                    </StackPanel>
+                            </Button>
+
+                                <Button x:ConnectionId='9' Margin="0,0,10,10" Style="{StaticResource ActionTileButtonStyle}" Background="{StaticResource MdRestartCardBrush}" BorderBrush="#663CA8FF"                                            >
+                                    <StackPanel Spacing="8" HorizontalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <SymbolIcon Symbol="Refresh" Foreground="{StaticResource MdInfoBrush}" />
+                                            <TextBlock Text="Neu starten" Style="{StaticResource SectionTitleStyle}" />
+                                        </StackPanel>
+                                        <TextBlock Text="scrcpy-Session neu starten" Style="{StaticResource BodySubtleStyle}" TextAlignment="Center" />
+                                    </StackPanel>
+                            </Button>
+
+                                <Button x:ConnectionId='10' Margin="0,0,10,10" Style="{StaticResource ActionTileButtonStyle}" Background="{StaticResource MdStopCardBrush}" BorderBrush="#66E45A6E"                                         >
+                                    <StackPanel Spacing="8" HorizontalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <SymbolIcon Symbol="Stop" Foreground="{StaticResource MdDangerBrush}" />
+                                            <TextBlock Text="Stoppen" Style="{StaticResource SectionTitleStyle}" />
+                                        </StackPanel>
+                                        <TextBlock Text="Aktive Session beenden" Style="{StaticResource BodySubtleStyle}" TextAlignment="Center" />
+                                    </StackPanel>
+                            </Button>
+
+                                <Button x:ConnectionId='11' Margin="0,0,10,10" Style="{StaticResource ActionTileButtonStyle}" Background="{StaticResource MdSnapshotCardBrush}" BorderBrush="#6622B8CF"                                                   >
+                                    <StackPanel Spacing="8" HorizontalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <SymbolIcon Symbol="Sync" Foreground="{StaticResource MdInfoBrush}" />
+                                            <TextBlock Text="Geräte aktualisieren" Style="{StaticResource SectionTitleStyle}" />
+                                        </StackPanel>
+                                        <TextBlock Text="ADB-Device-Liste aktualisieren" Style="{StaticResource BodySubtleStyle}" TextAlignment="Center" />
+                                    </StackPanel>
+                            </Button>
+
+                                <Button x:ConnectionId='12' Margin="0,0,10,10" Style="{StaticResource ActionTileButtonStyle}" Background="{StaticResource MdSurfaceAltBrush}" BorderBrush="#55334661"                                            >
+                                    <StackPanel Spacing="8" HorizontalAlignment="Center">
+                                        <StackPanel Orientation="Horizontal" Spacing="8">
+                                            <SymbolIcon Symbol="Copy" Foreground="{StaticResource MdTextStrongBrush}" />
+                                            <TextBlock Text="Log kopieren" Style="{StaticResource SectionTitleStyle}" />
+                                        </StackPanel>
+                                        <TextBlock Text="Aktuelle Android-Logs kopieren" Style="{StaticResource BodySubtleStyle}" TextAlignment="Center" />
+                                    </StackPanel>
+                            </Button>
+                        </ItemsControl>
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource StatusCard}">
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="Kurzer Hinweis" Style="{StaticResource SectionTitleStyle}" />
+                        <TextBlock Text="Für die drahtlose Android-Kopplung zuerst Entwickleroptionen und USB-Debugging aktivieren, dann einmal per USB verbinden und Debugging erlauben." Style="{StaticResource BodySubtleStyle}" TextWrapping="Wrap" />
+                        <TextBlock Text="Die komplette Schritt-für-Schritt-Anleitung findest du in der Hilfe unter 'Mini-Kurzfassung Android'." Style="{StaticResource BodySubtleStyle}" TextWrapping="Wrap" />
+                    </StackPanel>
+                </Border>
+
+                <Grid ColumnSpacing="12" VerticalAlignment="Top">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Border Grid.Column="0" Style="{StaticResource InfoCard}" HorizontalAlignment="Left" Width="150">
+                        <StackPanel Spacing="8">
+                            <TextBlock Text="Geräte" Style="{StaticResource SectionTitleStyle}" />
+                            <ScrollViewer MinHeight="56" VerticalAlignment="Top" VerticalScrollBarVisibility="Disabled">
+                                <ItemsControl x:ConnectionId='4'                                                       />
+                            </ScrollViewer>
+                        </StackPanel>
+                    </Border>
+
+                    <Expander Grid.Column="1" Header="Logs anzeigen" IsExpanded="False" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+                        <Border Style="{StaticResource LogPanelStyle}" Margin="0,0,0,0">
+                            <ScrollViewer MinHeight="160" MaxHeight="260">
+                                <TextBlock x:ConnectionId='3'
+                                                                                  
+                                    TextWrapping="Wrap"
+                                    IsTextSelectionEnabled="True"
+                                    Foreground="{StaticResource MdTextStrongBrush}"
+                                    FontFamily="{StaticResource MirrorDeckMonoFont}" />
+                            </ScrollViewer>
+                        </Border>
+                    </Expander>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap rescap">
+  <Identity Name="MirrorDeck.Package" Publisher="CN=MirrorDeck" Version="0.1.0.0" ProcessorArchitecture="x64" />
+  <Properties>
+    <DisplayName>MirrorDeck</DisplayName>
+    <PublisherDisplayName>MirrorDeck</PublisherDisplayName>
+    <Logo>Images\StoreLogo.png</Logo>
+    <Description>Unified mirroring control center for AirPlay and Android.</Description>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
+      <uap:VisualElements
+        DisplayName="MirrorDeck"
+        Description="MirrorDeck"
+        BackgroundColor="transparent"
+        Square150x150Logo="Images\Logo.png"
+        Square44x44Logo="Images\SmallLogo.png">
+        <uap:DefaultTile Wide310x150Logo="Images\Logo.png" Square310x310Logo="Images\Logo.png" />
+        <uap:SplashScreen Image="Images\Splash.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+</Package>

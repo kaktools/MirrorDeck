@@ -1,0 +1,15 @@
+App.xbf
+FirstRunModuleWindow.xbf
+HelpWindow.xbf
+LicenseWindow.xbf
+LifecycleSplashWindow.xbf
+LogsWindow.xbf
+MainWindow.xbf
+Views\AirPlayPage.xbf
+Views\AndroidPage.xbf
+Views\DashboardPage.xbf
+Views\FirstRunSetupPage.xbf
+Views\HelpPage.xbf
+Views\LogsPage.xbf
+Views\SettingsPage.xbf
+Views\SetupAssistantPage.xbf

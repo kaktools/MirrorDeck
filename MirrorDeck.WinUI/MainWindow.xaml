@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="MirrorDeck.WinUI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:MirrorDeck.WinUI"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="MirrorDeck">
+
+    <Grid Background="{StaticResource MirrorDeckPageBackgroundBrush}">
+        <TextBlock
+            Text="© KaKTools"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Bottom"
+            Margin="0,0,14,10"
+            Opacity="0.22"
+            IsHitTestVisible="False"
+            FontFamily="{StaticResource MirrorDeckMonoFont}"
+            FontSize="11"
+            Foreground="{StaticResource MdTextMutedBrush}" />
+
+        <Grid x:Name="RootLayout" RowSpacing="0" Opacity="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border x:Name="CustomTitleBar" Grid.Row="0" Background="{ThemeResource MdTitleBarBackgroundBrush}" BorderThickness="0">
+                <Grid x:Name="AppTitleBarDragRegion" Padding="10,0,8,0" ColumnSpacing="8" Height="36">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border Width="22" Height="22" CornerRadius="6" Background="#223CA8FF" VerticalAlignment="Center">
+                        <Image Source="ms-appx:///Assets/MirrorDeckLogo.png" Width="14" Height="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+                        <TextBlock Text="MirrorDeck" FontFamily="{StaticResource MirrorDeckDisplayFont}" FontSize="14" Foreground="{StaticResource MdTextStrongBrush}" />
+                        <TextBlock Text="Mirroring Control Center" Style="{StaticResource BodySubtleStyle}" />
+                    </StackPanel>
+
+                    <TextBlock x:Name="MainVersionText" Grid.Column="2" FontFamily="{StaticResource MirrorDeckMonoFont}" FontSize="11" Foreground="{ThemeResource MdTitleBarSubtleTextBrush}" VerticalAlignment="Center" Margin="0,0,110,0" IsHitTestVisible="False" />
+
+                </Grid>
+            </Border>
+
+            <NavigationView
+                Grid.Row="1"
+                x:Name="AppNavigation"
+                PaneDisplayMode="LeftCompact"
+                OpenPaneLength="168"
+                CompactPaneLength="44"
+                IsBackButtonVisible="Collapsed"
+                IsSettingsVisible="False"
+                AlwaysShowHeader="False"
+                SelectionChanged="OnSelectionChanged">
+                <NavigationView.MenuItems>
+                    <NavigationViewItem Tag="dashboard" Content="Home">
+                        <NavigationViewItem.Icon>
+                            <FontIcon Style="{StaticResource SidebarGlyphIconStyle}" Glyph="&#xE80F;" />
+                        </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+                    <NavigationViewItem Tag="airplay" Content="AirPlay">
+                        <NavigationViewItem.Icon>
+                            <FontIcon Style="{StaticResource SidebarGlyphIconStyle}" Glyph="&#xE7F4;" />
+                        </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+                    <NavigationViewItem Tag="android" Content="Android">
+                        <NavigationViewItem.Icon>
+                            <FontIcon Style="{StaticResource SidebarGlyphIconStyle}" Glyph="&#xE70A;" />
+                        </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+                    <NavigationViewItem Tag="setup" Content="Einstellungen">
+                        <NavigationViewItem.Icon>
+                            <FontIcon Style="{StaticResource SidebarGlyphIconStyle}" Glyph="&#xE713;" />
+                        </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+                </NavigationView.MenuItems>
+
+                <NavigationView.FooterMenuItems>
+                    <NavigationViewItem Tag="logs" Content="Log">
+                        <NavigationViewItem.Icon>
+                            <FontIcon Style="{StaticResource SidebarGlyphIconStyle}" Glyph="&#xE7BA;" />
+                        </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+                    <NavigationViewItem Tag="help" Content="Hilfe">
+                        <NavigationViewItem.Icon>
+                            <FontIcon Style="{StaticResource SidebarGlyphIconStyle}" Glyph="&#xE897;" />
+                        </NavigationViewItem.Icon>
+                    </NavigationViewItem>
+                </NavigationView.FooterMenuItems>
+
+                <Frame x:Name="ContentFrame" />
+            </NavigationView>
+
+        </Grid>
+
+        <Grid x:Name="LifecycleOverlay" Visibility="Collapsed" Opacity="0" IsHitTestVisible="False">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#071427" Offset="0" />
+                    <GradientStop Color="#0A1830" Offset="0.5" />
+                    <GradientStop Color="#061021" Offset="1" />
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <Image x:Name="OverlaySplashBackground" Source="ms-appx:///Assets/Splash.png" Stretch="UniformToFill" Opacity="0.16" />
+            <Rectangle Fill="#78081223" />
+
+            <Rectangle x:Name="OverlayCenterBloom" Width="620" Height="420" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.52" IsHitTestVisible="False">
+                <Rectangle.Fill>
+                    <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" RadiusX="0.64" RadiusY="0.6">
+                        <GradientStop Color="#6A4F7FC8" Offset="0" />
+                        <GradientStop Color="#2D4F7FC8" Offset="0.56" />
+                        <GradientStop Color="#004F7FC8" Offset="1" />
+                    </RadialGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Rectangle x:Name="OverlayShutdownTint" Opacity="0" IsHitTestVisible="False">
+                <Rectangle.Fill>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="#00558DD6" Offset="0" />
+                        <GradientStop Color="#305A4F89" Offset="0.54" />
+                        <GradientStop Color="#00558DD6" Offset="1" />
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <StackPanel Width="560" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="11">
+                <Grid Width="176" Height="176" HorizontalAlignment="Center">
+                    <Border x:Name="OverlayLogoGlow" Width="168" Height="168" CornerRadius="84" Opacity="0.42" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border.Background>
+                            <RadialGradientBrush Center="0.5,0.5" GradientOrigin="0.5,0.5" RadiusX="0.54" RadiusY="0.54">
+                                <GradientStop Color="#6A77B9FF" Offset="0" />
+                                <GradientStop Color="#0877B9FF" Offset="1" />
+                            </RadialGradientBrush>
+                        </Border.Background>
+                    </Border>
+                    <Border Width="146" Height="146" CornerRadius="73" Background="#120D1E35" BorderBrush="#3377A6DB" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Image Source="ms-appx:///Assets/MirrorDeckLogo.png" Width="106" Height="106" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </Grid>
+
+                <TextBlock x:Name="OverlayTitleText" Text="MirrorDeck startet" FontFamily="Bahnschrift SemiBold" FontSize="44" Foreground="#F0F6FF" HorizontalAlignment="Center" TextAlignment="Center" />
+                <TextBlock x:Name="OverlaySubtitleText" Text="AirPlay und Android-Dienste werden vorbereitet" FontFamily="Segoe UI Variable Text" FontSize="15" Foreground="#C1D2E9" HorizontalAlignment="Center" TextAlignment="Center" MaxWidth="520" TextWrapping="WrapWholeWords" />
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="8" Margin="0,2,0,0">
+                    <Border x:Name="OverlayAirPlayBadge" Padding="10,4" CornerRadius="9" Background="#2647B7A2" BorderBrush="#6E92E3CF" BorderThickness="1">
+                        <TextBlock Text="AirPlay" FontFamily="Segoe UI Variable Text" FontSize="11" Foreground="#E9FFF8" />
+                    </Border>
+                    <Border x:Name="OverlayAndroidBadge" Padding="10,4" CornerRadius="9" Background="#26488FCF" BorderBrush="#6E9CCDF6" BorderThickness="1">
+                        <TextBlock Text="Android" FontFamily="Segoe UI Variable Text" FontSize="11" Foreground="#EAF5FF" />
+                    </Border>
+                    <Border x:Name="OverlayDiscoveryBadge" Padding="10,4" CornerRadius="9" Background="#263B67BD" BorderBrush="#6E8EB2E5" BorderThickness="1">
+                        <TextBlock Text="Discovery" FontFamily="Segoe UI Variable Text" FontSize="11" Foreground="#EAF2FF" />
+                    </Border>
+                </StackPanel>
+
+                <TextBlock x:Name="OverlayStepText" Text="Initialisierung der Dienste..." FontFamily="Cascadia Mono" FontSize="12" Foreground="#D9E5F6" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,6,0,0" />
+                <ProgressBar x:Name="OverlayProgress" Width="330" Minimum="0" Maximum="100" Height="5" Value="0" Foreground="#87CEFF" Background="#292F4359" HorizontalAlignment="Center" />
+                <TextBlock x:Name="OverlayFooterText" Text="Stabile Verbindungen für AirPlay, Android und Discovery" FontFamily="Segoe UI Variable Text" FontSize="11" Foreground="#8FA5C1" HorizontalAlignment="Center" TextAlignment="Center" MaxWidth="520" TextWrapping="WrapWholeWords" />
+            </StackPanel>
+
+            <Border HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,14,10" Background="#26111A2C" BorderBrush="#488FB9E2" BorderThickness="1" CornerRadius="8" Padding="8,3">
+                <TextBlock x:Name="OverlayVersionText" FontFamily="{StaticResource MirrorDeckMonoFont}" FontSize="11" Foreground="#CEE1F8" />
+            </Border>
+
+            <TextBlock
+                Text="Copyright: KaKTools"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Margin="14,0,0,10"
+                FontFamily="{StaticResource MirrorDeckMonoFont}"
+                FontSize="11"
+                Foreground="#8FA5C1"
+                IsHitTestVisible="False" />
+        </Grid>
+    </Grid>
+</Window>

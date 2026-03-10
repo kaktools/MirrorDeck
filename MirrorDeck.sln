@@ -1,0 +1,34 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MirrorDeck.WinUI", "MirrorDeck.WinUI\MirrorDeck.WinUI.csproj", "{C2DBB8B1-EAB2-8E57-C581-9314EA7AAFEE}"
+EndProject
+Project("{BC8A1FFA-BEE3-4634-8014-F334798102B3}") = "MirrorDeck.Package", "MirrorDeck.Package\MirrorDeck.Package.wapproj", "{6B7B3EDB-98C6-4D3D-B294-C38D91C95E14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MirrorDeck.Bootstrapper", "MirrorDeck.Bootstrapper\MirrorDeck.Bootstrapper.csproj", "{1A63EF49-4FE6-41C2-8B6B-6C72CD57A4FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2DBB8B1-EAB2-8E57-C581-9314EA7AAFEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2DBB8B1-EAB2-8E57-C581-9314EA7AAFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2DBB8B1-EAB2-8E57-C581-9314EA7AAFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2DBB8B1-EAB2-8E57-C581-9314EA7AAFEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B7B3EDB-98C6-4D3D-B294-C38D91C95E14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B7B3EDB-98C6-4D3D-B294-C38D91C95E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A63EF49-4FE6-41C2-8B6B-6C72CD57A4FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A63EF49-4FE6-41C2-8B6B-6C72CD57A4FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A63EF49-4FE6-41C2-8B6B-6C72CD57A4FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A63EF49-4FE6-41C2-8B6B-6C72CD57A4FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D03AE46-9132-4B26-AB72-6641CFCC674A}
+	EndGlobalSection
+EndGlobal

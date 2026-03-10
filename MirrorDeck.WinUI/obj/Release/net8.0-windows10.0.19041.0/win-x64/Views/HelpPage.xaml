@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="MirrorDeck.WinUI.Views.HelpPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource MirrorDeckPageBackgroundBrush}">
+        <Image Style="{StaticResource PageWatermarkImageStyle}" />
+        <ScrollViewer>
+            <StackPanel Padding="14" Spacing="12">
+                <Border Style="{StaticResource PageHeaderCard}">
+                    <Grid ColumnSpacing="12">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Spacing="4">
+                            <TextBlock Text="{Binding PageTitle}" Style="{StaticResource PageTitleStyle}" />
+                            <TextBlock Text="Infos, Quellen und Fehlerhilfe" Style="{StaticResource BodySubtleStyle}" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding LanguageLabel}" Style="{StaticResource BodySubtleStyle}" VerticalAlignment="Center" />
+                            <ComboBox Width="140"
+                                      ItemsSource="{Binding LanguageOptions}"
+                                      SelectedValuePath="Code"
+                                      DisplayMemberPath="DisplayName"
+                                      SelectedValue="{Binding SelectedLanguageCode, Mode=TwoWay}" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border Style="{StaticResource StatusCard}">
+                    <StackPanel Spacing="6">
+                        <TextBlock Text="{Binding HowItWorksTitle}" Style="{StaticResource SectionTitleStyle}" />
+                        <TextBlock Text="{Binding HowStep1}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding HowStep2}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding HowStep3}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding HowStep4}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource InfoCard}">
+                    <StackPanel Spacing="6">
+                        <TextBlock Text="{Binding SourcesTitle}" Style="{StaticResource SectionTitleStyle}" />
+                        <TextBlock Text="{Binding SourceUxPlay}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding SourceScrcpy}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding SourceBonjour}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding SourceApi}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource StatusCard}">
+                    <StackPanel Spacing="6">
+                        <TextBlock Text="{Binding TrayTitle}" Style="{StaticResource SectionTitleStyle}" />
+                        <TextBlock Text="{Binding TrayItem1}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding TrayItem2}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding TrayItem3}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding TrayItem4}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding TrayItem5}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource InfoCard}">
+                    <StackPanel Spacing="6">
+                        <TextBlock Text="{Binding TroubleTitle}" Style="{StaticResource SectionTitleStyle}" />
+                        <TextBlock Text="{Binding TroubleAirPlayTitle}" Foreground="{StaticResource MdTextStrongBrush}" FontWeight="SemiBold" />
+                        <TextBlock Text="{Binding TroubleAirPlay1}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding TroubleAirPlay2}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding TroubleAirPlay3}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+
+                        <TextBlock Text="{Binding TroubleAdbTitle}" Foreground="{StaticResource MdTextStrongBrush}" FontWeight="SemiBold" Margin="0,8,0,0" />
+                        <TextBlock Text="{Binding TroubleAdb1}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding TroubleAdb2}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+
+                        <TextBlock Text="{Binding TroubleTcpTitle}" Foreground="{StaticResource MdTextStrongBrush}" FontWeight="SemiBold" Margin="0,8,0,0" />
+                        <TextBlock Text="{Binding TroubleTcp1}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding TroubleTcp2}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                        <TextBlock Text="{Binding TroubleTcp3}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                    </StackPanel>
+                </Border>
+
+                <Border Style="{StaticResource StatusCard}">
+                    <StackPanel Spacing="6">
+                        <TextBlock Text="{Binding AndroidQuickGuideTitle}" Style="{StaticResource SectionTitleStyle}" />
+                        <TextBlock Text="{Binding AndroidQuickGuideSteps}" TextWrapping="Wrap" Style="{StaticResource BodySubtleStyle}" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
+

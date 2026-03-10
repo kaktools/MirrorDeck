@@ -1,0 +1,14 @@
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\bin\Debug\net8.0-windows\MirrorDeck.Bootstrapper.exe
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\bin\Debug\net8.0-windows\MirrorDeck.Bootstrapper.deps.json
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\bin\Debug\net8.0-windows\MirrorDeck.Bootstrapper.runtimeconfig.json
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\bin\Debug\net8.0-windows\MirrorDeck.Bootstrapper.dll
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\bin\Debug\net8.0-windows\MirrorDeck.Bootstrapper.pdb
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\obj\Debug\net8.0-windows\MirrorDeck.Bootstrapper.GeneratedMSBuildEditorConfig.editorconfig
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\obj\Debug\net8.0-windows\MirrorDeck.Bootstrapper.AssemblyInfoInputs.cache
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\obj\Debug\net8.0-windows\MirrorDeck.Bootstrapper.AssemblyInfo.cs
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\obj\Debug\net8.0-windows\MirrorDeck.Bootstrapper.csproj.CoreCompileInputs.cache
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\obj\Debug\net8.0-windows\MirrorDeck.Bootstrapper.dll
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\obj\Debug\net8.0-windows\refint\MirrorDeck.Bootstrapper.dll
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\obj\Debug\net8.0-windows\MirrorDeck.Bootstrapper.pdb
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\obj\Debug\net8.0-windows\MirrorDeck.Bootstrapper.genruntimeconfig.cache
+E:\Repos\MirrorDeck\MirrorDeck.Bootstrapper\obj\Debug\net8.0-windows\ref\MirrorDeck.Bootstrapper.dll

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="MirrorDeck.WinUI.HelpWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="MirrorDeck - Hilfe">
+
+    <Grid x:ConnectionId='2' x:Name="RootLayout" Background="{StaticResource MirrorDeckPageBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="38" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="{StaticResource MdTitleBarBackgroundBrush}" BorderBrush="{StaticResource MdBorderBrush}" BorderThickness="0,0,0,1">
+            <Grid x:ConnectionId='4' x:Name="PopupTitleBarDragRegion" Padding="10,0,8,0" ColumnSpacing="8">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Border Width="22" Height="22" CornerRadius="6" Background="{StaticResource MdSurfaceAltBrush}" BorderBrush="{StaticResource MdInfoBrush}" BorderThickness="1" VerticalAlignment="Center">
+                    <Image Source="ms-appx:///Assets/MirrorDeckLogo.png" Width="14" Height="14" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" Spacing="8">
+                    <TextBlock Text="MirrorDeck" FontFamily="{StaticResource MirrorDeckDisplayFont}" FontSize="14" Foreground="{StaticResource MdTextStrongBrush}" />
+                    <TextBlock Text="Hilfe" Style="{StaticResource BodySubtleStyle}" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Frame x:ConnectionId='3' Grid.Row="1" x:Name="ContentFrame" />
+    </Grid>
+</Window>
+
