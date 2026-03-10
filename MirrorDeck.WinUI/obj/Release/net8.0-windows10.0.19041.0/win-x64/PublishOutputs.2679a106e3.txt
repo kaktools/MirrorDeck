@@ -3,7 +3,7 @@ E:\Repos\KaKTools\MirrorDeck\dist\portable\MirrorDeck\Assets\MirrorDeck.ico
 E:\Repos\KaKTools\MirrorDeck\dist\portable\MirrorDeck\Assets\MirrorDeckLogo.png
 E:\Repos\KaKTools\MirrorDeck\dist\portable\MirrorDeck\Assets\MirrorDeckLogo.svg
 E:\Repos\KaKTools\MirrorDeck\dist\portable\MirrorDeck\Assets\Splash.png
-E:\Repos\KaKTools\MirrorDeck\dist\portable\MirrorDeck\LICENSE.md
+E:\Repos\KaKTools\MirrorDeck\dist\portable\MirrorDeck\LICENSE
 E:\Repos\KaKTools\MirrorDeck\dist\portable\MirrorDeck\CoreMessagingXP.dll
 E:\Repos\KaKTools\MirrorDeck\dist\portable\MirrorDeck\dcompi.dll
 E:\Repos\KaKTools\MirrorDeck\dist\portable\MirrorDeck\dwmcorei.dll

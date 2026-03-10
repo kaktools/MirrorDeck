@@ -148,7 +148,7 @@ public class AndroidViewModel : ObservableObject
         AutoRestartOnFailure = _settingsService.Current.AutoRestartAndroidService;
 
         RefreshDevicesCommand = new AsyncRelayCommand(() => SafeExecuteAsync(RefreshDevicesAsync, "Android.RefreshDevices"));
-        AutoDetectEndpointCommand = new AsyncRelayCommand(() => SafeExecuteAsync(AutoDetectEndpointAsync, "Android.AutoDetectEndpoint"));
+        AutoDetectEndpointCommand = new AsyncRelayCommand(() => SafeExecuteAsync(() => AutoDetectEndpointAsync(), "Android.AutoDetectEndpoint"));
         ConnectTcpCommand = new AsyncRelayCommand(() => SafeExecuteAsync(ConnectTcpAsync, "Android.ConnectTcp"));
         ConnectTcpAndStartCommand = new AsyncRelayCommand(() => SafeExecuteAsync(ConnectTcpAndStartAsync, "Android.ConnectAndStart"));
         DisconnectTcpCommand = new AsyncRelayCommand(() => SafeExecuteAsync(DisconnectTcpAsync, "Android.DisconnectTcp"));
@@ -165,9 +165,8 @@ public class AndroidViewModel : ObservableObject
     {
         try
         {
-            Devices = await _adbService.GetConnectedDevicesAsync();
-            AppendLog($"ADB devices found: {Devices.Count}");
-            OnPropertyChanged(nameof(OverallStatusText));
+            await AutoDetectEndpointAsync(refreshDevices: false);
+            await RefreshDevicesListAsync();
         }
         catch (Exception ex)
         {
@@ -175,7 +174,7 @@ public class AndroidViewModel : ObservableObject
         }
     }
 
-    private async Task AutoDetectEndpointAsync()
+    private async Task AutoDetectEndpointAsync(bool refreshDevices = true)
     {
         try
         {
@@ -213,12 +212,22 @@ public class AndroidViewModel : ObservableObject
                 AppendLog($"Auto-Erkennung ({result.Source}): Endpoint unverändert ({TcpHost}:{TcpPort}).");
             }
 
-            await RefreshDevicesAsync();
+            if (refreshDevices)
+            {
+                await RefreshDevicesListAsync();
+            }
         }
         catch (Exception ex)
         {
             AppendLog($"ERR: Auto-Erkennung fehlgeschlagen: {ex.Message}");
         }
+    }
+
+    private async Task RefreshDevicesListAsync()
+    {
+        Devices = await _adbService.GetConnectedDevicesAsync();
+        AppendLog($"ADB devices found: {Devices.Count}");
+        OnPropertyChanged(nameof(OverallStatusText));
     }
 
     private async Task ConnectTcpAsync()

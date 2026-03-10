@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MirrorDeck")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+89d04a027204b9694373d40705b03d46b84faf0d")]
 [assembly: System.Reflection.AssemblyProductAttribute("MirrorDeck")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MirrorDeck")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

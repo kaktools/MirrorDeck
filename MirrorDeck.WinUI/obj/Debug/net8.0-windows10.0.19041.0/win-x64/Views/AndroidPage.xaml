@@ -27,15 +27,15 @@
                             <ScrollViewer Grid.Column="1" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Auto" VerticalScrollMode="Disabled" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" VerticalAlignment="Center">
                                 <StackPanel Orientation="Horizontal" Spacing="8">
                                     <Border Style="{StaticResource StatusBadgeStyle}">
-                                        <StackPanel Orientation="Horizontal" Spacing="4"><TextBlock Text="Endpoint" Style="{StaticResource BodySubtleStyle}" /><TextBlock x:ConnectionId='21'                                                    Foreground="{StaticResource MdTextStrongBrush}" /></StackPanel>
+                                        <StackPanel Orientation="Horizontal" Spacing="4"><TextBlock Text="Endpoint" Style="{StaticResource BodySubtleStyle}" /><TextBlock x:ConnectionId='20'                                                    Foreground="{StaticResource MdTextStrongBrush}" /></StackPanel>
                                     </Border>
                                     <Border Style="{StaticResource StatusBadgeStyle}">
-                                        <StackPanel Orientation="Horizontal" Spacing="4"><TextBlock Text="TCP" Style="{StaticResource BodySubtleStyle}" /><TextBlock x:ConnectionId='20'                                                      Foreground="{StaticResource MdTextStrongBrush}" /></StackPanel>
+                                        <StackPanel Orientation="Horizontal" Spacing="4"><TextBlock Text="TCP" Style="{StaticResource BodySubtleStyle}" /><TextBlock x:ConnectionId='19'                                                      Foreground="{StaticResource MdTextStrongBrush}" /></StackPanel>
                                     </Border>
                                     <Border Style="{StaticResource StatusBadgeStyle}">
-                                        <StackPanel Orientation="Horizontal" Spacing="4"><TextBlock Text="Geräte" Style="{StaticResource BodySubtleStyle}" /><TextBlock x:ConnectionId='19'                                                        Foreground="{StaticResource MdTextStrongBrush}" /></StackPanel>
+                                        <StackPanel Orientation="Horizontal" Spacing="4"><TextBlock Text="Geräte" Style="{StaticResource BodySubtleStyle}" /><TextBlock x:ConnectionId='18'                                                        Foreground="{StaticResource MdTextStrongBrush}" /></StackPanel>
                                     </Border>
-                                    <Border Style="{StaticResource StatusBadgeStyle}" Background="#1F2FBF78" BorderBrush="#4A2FBF78"><TextBlock x:ConnectionId='18'                                                          Foreground="{StaticResource MdTextStrongBrush}" /></Border>
+                                    <Border Style="{StaticResource StatusBadgeStyle}" Background="#1F2FBF78" BorderBrush="#4A2FBF78"><TextBlock x:ConnectionId='17'                                                          Foreground="{StaticResource MdTextStrongBrush}" /></Border>
                                 </StackPanel>
                             </ScrollViewer>
                         </Grid>
@@ -53,15 +53,14 @@
                                 <ColumnDefinition Width="150" />
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="92" />
-                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="18" VerticalAlignment="Center" HorizontalAlignment="Left">
                                 <StackPanel Orientation="Horizontal" Spacing="0" VerticalAlignment="Center">
-                                    <ToggleSwitch x:ConnectionId='17' Width="52" MinWidth="0" Padding="0" Margin="0,0,-6,0" Header="" OnContent="" OffContent=""                                                            VerticalAlignment="Center" HorizontalAlignment="Left" />
+                                    <ToggleSwitch x:ConnectionId='16' Width="52" MinWidth="0" Padding="0" Margin="0,0,-6,0" Header="" OnContent="" OffContent=""                                                            VerticalAlignment="Center" HorizontalAlignment="Left" />
                                     <TextBlock Text="Auto-Start + TCP/IP" Foreground="{StaticResource MdTextStrongBrush}" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Spacing="0" VerticalAlignment="Center">
-                                    <ToggleSwitch x:ConnectionId='16' Width="52" MinWidth="0" Padding="0" Margin="0,0,-6,0" Header="" OnContent="" OffContent=""                                                             VerticalAlignment="Center" HorizontalAlignment="Left" />
+                                    <ToggleSwitch x:ConnectionId='15' Width="52" MinWidth="0" Padding="0" Margin="0,0,-6,0" Header="" OnContent="" OffContent=""                                                             VerticalAlignment="Center" HorizontalAlignment="Left" />
                                     <TextBlock Text="Auto-Restart" Foreground="{StaticResource MdTextStrongBrush}" FontWeight="SemiBold" VerticalAlignment="Center" Margin="0" />
                                 </StackPanel>
                             </StackPanel>
@@ -78,7 +77,6 @@
                                                                            
                                        MinWidth="96"
                                        VerticalAlignment="Center" />
-                            <Button x:ConnectionId='15' Grid.Column="5" Content="Auto erkennen" Style="{StaticResource SecondaryButtonStyle}"                                                        VerticalAlignment="Center" />
                         </Grid>
 
                         <ItemsControl>

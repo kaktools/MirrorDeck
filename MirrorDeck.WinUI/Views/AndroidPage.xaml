@@ -53,7 +53,6 @@
                                 <ColumnDefinition Width="150" />
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="92" />
-                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="18" VerticalAlignment="Center" HorizontalAlignment="Left">
                                 <StackPanel Orientation="Horizontal" Spacing="0" VerticalAlignment="Center">
@@ -78,7 +77,6 @@
                                        ValueChanged="OnTcpPortValueChanged"
                                        MinWidth="96"
                                        VerticalAlignment="Center" />
-                            <Button Grid.Column="5" Content="Auto erkennen" Style="{StaticResource SecondaryButtonStyle}" Command="{x:Bind ViewModel.AutoDetectEndpointCommand}" VerticalAlignment="Center" />
                         </Grid>
 
                         <ItemsControl>
