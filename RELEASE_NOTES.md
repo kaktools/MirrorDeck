@@ -1,6 +1,6 @@
 # MirrorDeck Release Notes
 
-## 1.3.0 - 2026-03-08
+## 1.3.0
 
 ### Neu
 
@@ -35,12 +35,9 @@
 - Visuelle Farbunterbrechung in der Titelzeile durch vereinheitlichte Darstellung reduziert.
 - Auto-Restart jetzt mit klaren Leitplanken: maximal 10 Versuche im Abstand von 5 Sekunden, danach Stopp mit Logeintrag.
 
-### Hinweise
 
-- Alte Schreibweisen in `obj/`-Artefakten können weiterhin auftauchen; relevant ist der Quellstand in `Views/`, `ViewModels/`, `Services/`.
-- Die Build-Pipeline erzeugt Installer und Portable-Output über `build.bat installer`.
 
-## 1.2.1 - 2026-03-07
+## 1.2.1 - ehemals UxPlay for Windows @koerby
 
 ### Neu
 
