@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iwbmhPd6p6o=",
+  "dgSpecHash": "Uw6MFeZzIJ8=",
   "success": true,
-  "projectFilePath": "E:\\Repos\\MirrorDeck\\MirrorDeck.WinUI\\MirrorDeck.WinUI.csproj",
+  "projectFilePath": "E:\\Repos\\KaKTools\\MirrorDeck\\MirrorDeck.WinUI\\MirrorDeck.WinUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kai\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\communitytoolkit.mvvm.8.4.0.nupkg.sha512",
     "C:\\Users\\Kai\\.nuget\\packages\\microsoft.extensions.configuration\\9.0.3\\microsoft.extensions.configuration.9.0.3.nupkg.sha512",
@@ -43,9 +43,6 @@
     "C:\\Users\\Kai\\.nuget\\packages\\system.serviceprocess.servicecontroller\\9.0.3\\system.serviceprocess.servicecontroller.9.0.3.nupkg.sha512",
     "C:\\Users\\Kai\\.nuget\\packages\\system.text.encodings.web\\9.0.3\\system.text.encodings.web.9.0.3.nupkg.sha512",
     "C:\\Users\\Kai\\.nuget\\packages\\system.text.json\\9.0.3\\system.text.json.9.0.3.nupkg.sha512",
-    "C:\\Users\\Kai\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.24\\microsoft.netcore.app.runtime.win-x64.8.0.24.nupkg.sha512",
-    "C:\\Users\\Kai\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.24\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.24.nupkg.sha512",
-    "C:\\Users\\Kai\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.24\\microsoft.aspnetcore.app.runtime.win-x64.8.0.24.nupkg.sha512",
     "C:\\Users\\Kai\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512"
   ],
   "logs": []

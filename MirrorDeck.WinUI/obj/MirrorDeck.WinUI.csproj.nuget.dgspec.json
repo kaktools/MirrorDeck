@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Repos\\MirrorDeck\\MirrorDeck.WinUI\\MirrorDeck.WinUI.csproj": {}
+    "E:\\Repos\\KaKTools\\MirrorDeck\\MirrorDeck.WinUI\\MirrorDeck.WinUI.csproj": {}
   },
   "projects": {
-    "E:\\Repos\\MirrorDeck\\MirrorDeck.WinUI\\MirrorDeck.WinUI.csproj": {
+    "E:\\Repos\\KaKTools\\MirrorDeck\\MirrorDeck.WinUI\\MirrorDeck.WinUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Repos\\MirrorDeck\\MirrorDeck.WinUI\\MirrorDeck.WinUI.csproj",
+        "projectUniqueName": "E:\\Repos\\KaKTools\\MirrorDeck\\MirrorDeck.WinUI\\MirrorDeck.WinUI.csproj",
         "projectName": "MirrorDeck",
-        "projectPath": "E:\\Repos\\MirrorDeck\\MirrorDeck.WinUI\\MirrorDeck.WinUI.csproj",
+        "projectPath": "E:\\Repos\\KaKTools\\MirrorDeck\\MirrorDeck.WinUI\\MirrorDeck.WinUI.csproj",
         "packagesPath": "C:\\Users\\Kai\\.nuget\\packages\\",
-        "outputPath": "E:\\Repos\\MirrorDeck\\MirrorDeck.WinUI\\obj\\",
+        "outputPath": "E:\\Repos\\KaKTools\\MirrorDeck\\MirrorDeck.WinUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kai\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -90,20 +90,8 @@
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
-              "version": "[8.0.24, 8.0.24]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Runtime.win-x64",
-              "version": "[8.0.24, 8.0.24]"
-            },
-            {
               "name": "Microsoft.Windows.SDK.NET.Ref",
               "version": "[10.0.19041.57, 10.0.19041.57]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
-              "version": "[8.0.24, 8.0.24]"
             }
           ],
           "frameworkReferences": {

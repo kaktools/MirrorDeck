@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Repos\\MirrorDeck\\MirrorDeck.Bootstrapper\\MirrorDeck.Bootstrapper.csproj",
+      "projectUniqueName": "E:\\Repos\\KaKTools\\MirrorDeck\\MirrorDeck.Bootstrapper\\MirrorDeck.Bootstrapper.csproj",
       "projectName": "MirrorDeck.Bootstrapper",
-      "projectPath": "E:\\Repos\\MirrorDeck\\MirrorDeck.Bootstrapper\\MirrorDeck.Bootstrapper.csproj",
+      "projectPath": "E:\\Repos\\KaKTools\\MirrorDeck\\MirrorDeck.Bootstrapper\\MirrorDeck.Bootstrapper.csproj",
       "packagesPath": "C:\\Users\\Kai\\.nuget\\packages\\",
-      "outputPath": "E:\\Repos\\MirrorDeck\\MirrorDeck.Bootstrapper\\obj\\",
+      "outputPath": "E:\\Repos\\KaKTools\\MirrorDeck\\MirrorDeck.Bootstrapper\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kai\\AppData\\Roaming\\NuGet\\NuGet.Config"
