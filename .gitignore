@@ -7,11 +7,19 @@ build/
 dist/
 Output/
 *.spec
+artifacts/
+
+# Local repository-specific files
+build.bat
+BUILDING.md
+building.md
+version.txt
 
 # Local tooling/dependency clones
 .tooling/
 .runtime-cache/
 mdns214/
+vendor/UxPlay/
 venv/
 
 # Logs
