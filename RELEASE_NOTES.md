@@ -1,3 +1,21 @@
+# MirrorDeck Release Notes 
+
+## 1.3.1
+
+### Neu
+
+- Airplay PIN Code für Erst-Verbindung Optional einstellbar
+
+### Verbessert
+
+- Stabilität Verbesserungen
+- Skalierungsansicht auch bei Windows Skalierung größer 100% angepasst
+
+
+### Behoben
+
+- Absturz bei zu oft Updateprüfung
+
 # MirrorDeck Release Notes
 
 ## 1.3.0
