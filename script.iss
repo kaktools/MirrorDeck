@@ -50,8 +50,10 @@ PrivilegesRequired=admin
 UsedUserAreasWarning=no
 UninstallDisplayIcon={app}\Assets\MirrorDeck.ico
 UninstallDisplayName={#MyAppName} V{#MyAppVersion}
-CloseApplications=no
+CloseApplications=yes
 RestartApplications=no
+ForceCloseApplications=yes
+CloseApplicationsFilter=MirrorDeck.exe,uxplay.exe,scrcpy.exe,adb.exe
 
 [Languages]
 Name: "german"; MessagesFile: "compiler:Languages\\German.isl"
@@ -256,14 +258,87 @@ begin
   Result := (Rc = 0);
 end;
 
+function AreMirrorDeckRuntimeProcessesRunning(): Boolean;
+var
+  Cmd: string;
+  Rc: Integer;
+begin
+  Cmd :=
+    '$targets=@(''MirrorDeck'',''uxplay'',''scrcpy'',''adb'');' +
+    '$p=Get-Process -Name $targets -ErrorAction SilentlyContinue | Select-Object -First 1;' +
+    'if($p){ exit 0 } else { exit 3 };';
+
+  Rc := RunPowerShell(Cmd);
+  Result := (Rc = 0);
+end;
+
+function StopMirrorDeckRuntimeProcesses(): Boolean;
+var
+  Cmd: string;
+  Rc: Integer;
+begin
+  Cmd :=
+    '$ErrorActionPreference=''SilentlyContinue'';' +
+    '$targets=@(''MirrorDeck'',''uxplay'',''scrcpy'',''adb'');' +
+    'foreach($n in $targets){ Get-Process -Name $n -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue };' +
+    'Start-Sleep -Milliseconds 700;' +
+    '$left=Get-Process -Name $targets -ErrorAction SilentlyContinue | Select-Object -First 1;' +
+    'if($left){ exit 3 } else { exit 0 };';
+
+  Rc := RunPowerShell(Cmd);
+  Result := (Rc = 0);
+end;
+
+function EnsureRuntimeProcessesClosedForInstall(const AskUser: Boolean): Boolean;
+var
+  Decision: Integer;
+begin
+  Result := True;
+
+  if not AreMirrorDeckRuntimeProcessesRunning() then
+    Exit;
+
+  if AskUser and (not WizardSilent) then
+  begin
+    Decision := MsgBox(
+      'MirrorDeck oder zugehörige Prozesse sind noch aktiv.' + #13#10 +
+      'Soll der Installer diese jetzt automatisch schließen?',
+      mbConfirmation,
+      MB_YESNO
+    );
+
+    if Decision <> IDYES then
+    begin
+      MsgBox(
+        'Bitte MirrorDeck vollständig schließen und danach erneut auf "Weiter" klicken.',
+        mbInformation,
+        MB_OK
+      );
+      Result := False;
+      Exit;
+    end;
+  end;
+
+  if not StopMirrorDeckRuntimeProcesses() then
+  begin
+    MsgBox(
+      'MirrorDeck konnte nicht automatisch beendet werden.' + #13#10 +
+      'Bitte die App und ggf. uxplay/scrcpy/adb manuell schließen und erneut versuchen.',
+      mbError,
+      MB_OK
+    );
+    Result := False;
+  end;
+end;
+
 procedure UpdateReadyPageNotices();
 begin
   if Assigned(RunningAppNoticeLabel) then
   begin
-    if IsMirrorDeckRunning() then
+    if AreMirrorDeckRuntimeProcessesRunning() then
     begin
       RunningAppNoticeLabel.Caption :=
-        'MirrorDeck ist aktuell noch geöffnet. Bitte die App zuerst manuell schließen und dann auf "Weiter" klicken.';
+        'MirrorDeck oder zugehörige Prozesse sind noch aktiv. Beim Klick auf "Weiter" kann der Installer sie automatisch schließen.';
       RunningAppNoticeLabel.Visible := True;
     end
     else
@@ -664,7 +739,7 @@ begin
   if CurPageID = wpReady then
   begin
     UpdateReadyPageNotices();
-    if IsMirrorDeckRunning() then
+    if not EnsureRuntimeProcessesClosedForInstall(True) then
     begin
       Result := False;
       Exit;
@@ -684,6 +759,14 @@ begin
       ) = IDYES);
     end;
   end;
+end;
+
+function PrepareToInstall(var NeedsRestart: Boolean): String;
+begin
+  Result := '';
+
+  if not EnsureRuntimeProcessesClosedForInstall(False) then
+    Result := 'MirrorDeck oder zugehörige Prozesse laufen noch. Bitte diese Prozesse schließen und das Setup erneut starten.';
 end;
 
 procedure CurPageChanged(CurPageID: Integer);

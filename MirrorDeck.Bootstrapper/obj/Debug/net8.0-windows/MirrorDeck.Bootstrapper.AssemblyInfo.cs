@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MirrorDeck.Bootstrapper")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+88a59a981a7159525bc17397d5619d9410513ec5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28c2dfe676323551de979a3f6bd7ab753eba8cd0")]
 [assembly: System.Reflection.AssemblyProductAttribute("MirrorDeck.Bootstrapper")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MirrorDeck.Bootstrapper")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
