@@ -52,7 +52,6 @@ UninstallDisplayIcon={app}\Assets\MirrorDeck.ico
 UninstallDisplayName={#MyAppName} V{#MyAppVersion}
 CloseApplications=yes
 RestartApplications=no
-ForceCloseApplications=yes
 CloseApplicationsFilter=MirrorDeck.exe,uxplay.exe,scrcpy.exe,adb.exe
 
 [Languages]
