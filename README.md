@@ -2,7 +2,7 @@
 
 MirrorDeck ist eine WinUI-3-Steuerzentrale für Windows und führt AirPlay- und Android-Mirroring in einer App zusammen.
 
-Aktuelle Version: `1.3.1`
+Aktuelle Version: `1.3.2`
 
 ## Highlights
 
@@ -21,7 +21,7 @@ Aktuelle Version: `1.3.1`
 
 Installer-Datei aus `dist/` verwenden:
 
-- `dist/MirrorDeck-Setup-1.3.1.exe`
+- `dist/MirrorDeck-Setup-1.3.2.exe`
 
 ### Portable Build
 
@@ -66,12 +66,12 @@ Für Rendering-/DPI-Checks:
 
 ## Projektstruktur
 
-- `MirrorDeck.WinUI/`: Hauptanwendung (Views, ViewModels, Services)
-- `MirrorDeck.Bootstrapper/`: Bootstrapper
-- `MirrorDeck.Package/`: MSIX-Projekt
-- `script.iss`: Inno-Setup-Skript
-- `scripts/`: Build-/Vendor-Skripte
 - `vendor/`: vendorte Quellen/Artefakte
+- `dist/`: Build-Artefakte
+
+Hinweis zu `v1.3.2`:
+
+- Mehrere Build-/Projektordner und Skripte werden nicht mehr im Git-Repository nachverfolgt und sind in `.gitignore` eingetragen.
 
 ## Hinweise
 
@@ -87,4 +87,4 @@ Für Rendering-/DPI-Checks:
 
 ## Lizenz
 
-- Siehe `LICENSE.md` für Lizenztext und Third-Party-Hinweise.
+- Siehe `LICENSE` für Lizenztext und Third-Party-Hinweise.

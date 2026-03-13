@@ -1,5 +1,24 @@
 # MirrorDeck Release Notes 
 
+## 1.3.2
+
+### Geaendert
+
+- Repository-Bereinigung fuer GitHub durchgefuehrt.
+- Folgende Pfade werden nicht mehr nachverfolgt und sind in `.gitignore` aufgenommen:
+    - `MirrorDeck.Bootstrapper/`
+    - `MirrorDeck.Package/`
+    - `MirrorDeck.WinUI/`
+    - `script.iss`
+    - `build.bat`
+    - `version.txt`
+    - `scripts/`
+
+### Dokumentation
+
+- README auf Version `1.3.2` aktualisiert.
+- Installer-Referenz in README auf `dist/MirrorDeck-Setup-1.3.2.exe` aktualisiert.
+
 ## 1.3.1
 
 ### Neu

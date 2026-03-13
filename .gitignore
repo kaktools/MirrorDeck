@@ -24,3 +24,13 @@ venv/
 
 # Logs
 *.log
+
+# Repository cleanup (v1.3.2)
+MirrorDeck.Bootstrapper/
+MirrorDeck.Package/
+MirrorDeck.WinUI/
+script.iss
+scipt.iss
+build.bat
+version.txt
+scripts/
