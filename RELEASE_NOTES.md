@@ -4,7 +4,7 @@
 
 ### Neu
 
-- Zeichenleiste im Pause-Modus
+- Stabilität Verbesserungen
 
 ### Dokumentation
 
