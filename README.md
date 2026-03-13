@@ -15,18 +15,6 @@ Aktuelle Version: `1.3.2`
 - Eigene Popup-Fenster für Log und Hilfe
 - Einstellungen speichern sofort bei Änderung (kein Speichern-Button)
 
-## Installation
-
-### Setup-Installer
-
-Installer-Datei aus `dist/` verwenden:
-
-- `dist/MirrorDeck-Setup-1.3.2.exe`
-
-### Portable Build
-
-- `dist/portable/MirrorDeck/`
-
 ## Systemvoraussetzungen
 
 - Windows 11 (empfohlen)
@@ -39,17 +27,6 @@ Build-Werkzeuge:
 - Inno Setup 6 (`ISCC.exe`) für den Installer
 - Optional: MSIX-Paketierungs-/Signaturtools
 
-## Build
-
-Im Repository-Root:
-
-```bat
-build.bat portable
-build.bat installer
-build.bat msix
-build.bat all
-build.bat all --bump
-```
 
 Artefakte:
 
@@ -63,15 +40,6 @@ Für Rendering-/DPI-Checks:
 
 - Plan: `MirrorDeck.WinUI/SMOKE_TEST_RUNTIME_PLAN.md`
 - Ergebnisvorlage: `artifacts/visual-qa/2026-03-08/results-template.md`
-
-## Projektstruktur
-
-- `vendor/`: vendorte Quellen/Artefakte
-- `dist/`: Build-Artefakte
-
-Hinweis zu `v1.3.2`:
-
-- Mehrere Build-/Projektordner und Skripte werden nicht mehr im Git-Repository nachverfolgt und sind in `.gitignore` eingetragen.
 
 ## Hinweise
 

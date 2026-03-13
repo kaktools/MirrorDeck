@@ -2,17 +2,9 @@
 
 ## 1.3.2
 
-### Geaendert
+### Neu
 
-- Repository-Bereinigung fuer GitHub durchgefuehrt.
-- Folgende Pfade werden nicht mehr nachverfolgt und sind in `.gitignore` aufgenommen:
-    - `MirrorDeck.Bootstrapper/`
-    - `MirrorDeck.Package/`
-    - `MirrorDeck.WinUI/`
-    - `script.iss`
-    - `build.bat`
-    - `version.txt`
-    - `scripts/`
+- Zeichenleiste im Pause-Modus
 
 ### Dokumentation
 
