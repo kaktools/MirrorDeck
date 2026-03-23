@@ -1,5 +1,15 @@
 # MirrorDeck Release Notes 
+## 1.3.2
 
+### Neu
+
+- TaskTray Icon linker Doppelklick blendet MirroDeck Ein oder Aus, je nach Zustand.
+- TaskTray Icon linker Einfachklick entfernt.
+
+### Dokumentation
+
+- README auf Version `1.3.3` aktualisiert.
+  
 ## 1.3.2
 
 ### Neu
