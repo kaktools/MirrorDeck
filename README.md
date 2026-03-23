@@ -2,7 +2,7 @@
 
 MirrorDeck ist eine WinUI-3-Steuerzentrale für Windows und führt AirPlay- und Android-Mirroring in einer App zusammen.
 
-Aktuelle Version: `1.3.2`
+Aktuelle Version: `1.3.3`
 
 ## Highlights
 
