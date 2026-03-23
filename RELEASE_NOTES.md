@@ -1,5 +1,5 @@
 # MirrorDeck Release Notes 
-## 1.3.2
+## 1.3.3
 
 ### Neu
 
